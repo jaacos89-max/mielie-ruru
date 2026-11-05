@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<base href="/mielie-ruru/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#7b5cff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Mielie & Ruru - a cute kingdom adventure">
+<title>Mielie &amp; Ruru</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#7b5cff;
+    -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;}
+  canvas{display:block;position:fixed;left:0;top:0;width:100vw;height:100vh;touch-action:none;}
+  #boot{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+    font:bold 28px system-ui,sans-serif;color:#fff;}
+</style>
+</head>
+<body>
+<div id="boot">&#9733;</div>
+<canvas id="game"></canvas>
+<script src="js/levels.js"></script>
+<script src="js/gear.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/game.js"></script>
+<script src="js/forge.js"></script>
+<script src="js/villains.js"></script>
+<script src="js/power.js"></script>
+<script src="js/minigames.js"></script>
+<script src="js/worldmap.js"></script>
+<script>
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', function () {
+      var base = document.querySelector('base');
+      var root = new URL(base ? base.getAttribute('href') : './', location.origin).href;
+      navigator.serviceWorker.register(new URL('sw.js', root).href, { scope: root }).catch(function () {});
+    });
+  }
+</script>
+</body>
+</html>
